@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* ======================= */
+/* Dark mode custom variant */
+/* ======================= */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ======================= */
+/* CSS Variables           */
+/* ======================= */
+:root {
+  --background: #ffffff;
+  --foreground: #151515;
+
+  --color-bulb-glow: rgba(255, 255, 180, 0.8); /* по-ярко */
+  --color-bulb-glow-intense: rgba(255, 255, 200, 1); /* максимум */
+
+  --ease-glow: ease-in-out;
+}
+
+.dark {
+  --background: #151515;
+  --foreground: #ffffff;
+}
+
+/* @media (min-width: 640px) {
+  :root {
+    --page-bg-image: none;
+  }
+} */
+
+/* ======================= */
+/* Base Styles             */
+/* ======================= */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Scrollbar hide */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ======================= */
+/* Utilities Layer         */
+/* ======================= */
+@layer utilities {
+  /* Glow animation for dark mode */
+  @keyframes glow {
+    0%,
+    100% {
+      filter: brightness(2.5) drop-shadow(0 0 5px rgba(255, 255, 180, 1))
+        drop-shadow(0 0 25px rgba(255, 255, 180, 0.8))
+        drop-shadow(0 0 50px rgba(255, 255, 200, 0.6))
+        drop-shadow(0 0 100px rgba(255, 255, 220, 0.4));
+    }
+    50% {
+      filter: brightness(3) drop-shadow(0 0 10px rgba(255, 255, 200, 1))
+        drop-shadow(0 0 40px rgba(255, 255, 220, 0.9))
+        drop-shadow(0 0 80px rgba(255, 255, 230, 0.7))
+        drop-shadow(0 0 160px rgba(255, 255, 250, 0.5));
+    }
+  }
+
+  /* .animate-glow {
+    animation: none;
+  } */
+
+  /* .animate-glow {
+    animation: glow 2s var(--ease-glow) infinite;
+  } */
+
+  /* Default class for dark glow */
+  /* .dark\:animate-glow {
+    animation: glow 2s var(--ease-glow) infinite;
+  } */
+  @media (min-width: 1024px) {
+    .dark .animate-glow {
+      animation: glow 2s var(--ease-glow) infinite;
+    }
+  }
+
+  /* Custom screens example (touch) */
+  @media (hover: none) and (pointer: coarse) {
+    .touch\:hidden {
+      display: none;
+    }
+  }
+}
