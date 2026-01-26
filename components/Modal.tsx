@@ -83,7 +83,7 @@ ModalProps) {
     >
       <div
         ref={modalRef}
-        className="relative w-[90vw] xl:w-[80vw] xl:h-[80vh] rounded-4xl xl:rounded-lg bg-white p-8 text-black flex flex-col xl:flex-none justify-center items-center "
+        className="relative w-[90vw] lg:w-[60vw] xl:w-[80vw] xl:h-[80vh] rounded-4xl xl:rounded-lg bg-white p-8 text-black flex flex-col xl:flex-none justify-center items-center "
         onClick={(e) => e.stopPropagation()}
       >
         {children}

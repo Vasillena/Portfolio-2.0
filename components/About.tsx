@@ -160,11 +160,13 @@ export default function About({ isOpen, onClose }: AboutProps) {
 
       {/* Mobile */}
       <MobileModal>
-        <h2 className="text-3xl">About me</h2>
-        <p className={`text-lg leading-5 ${MazzardExtraLight.className}`}>
+        <h2 className="text-3xl sm:text-4xl">About me</h2>
+        <p
+          className={`text-lg sm:text-xl leading-5 ${MazzardExtraLight.className}`}
+        >
           {aboutText}
         </p>
-        <button className="text-lg px-8 py-1" onClick={onClose}>
+        <button className="text-lg sm:text-xl px-8 py-1" onClick={onClose}>
           Close
         </button>
       </MobileModal>

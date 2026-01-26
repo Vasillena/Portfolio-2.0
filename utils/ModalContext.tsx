@@ -7,6 +7,8 @@ type ModalContextType = {
   isProjectsOpen: boolean;
   isContactOpen: boolean;
   isStackOpen: boolean;
+  isMobileTechOpen: boolean;
+  isMobileCreativeOpen: boolean;
   openModal: (
     name: keyof Omit<ModalContextType, "openModal" | "closeModal">
   ) => void;
@@ -22,6 +24,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isStackOpen, setIsStackOpen] = useState(false);
+  const [isMobileTechOpen, setIsMobileTechOpen] = useState(false);
+  const [isMobileCreativeOpen, setIsMobileCreativeOpen] = useState(false);
 
   const openModal = (
     name: keyof Omit<ModalContextType, "openModal" | "closeModal">
@@ -38,6 +42,12 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         break;
       case "isStackOpen":
         setIsStackOpen(true);
+        break;
+      case "isMobileTechOpen":
+        setIsMobileTechOpen(true);
+        break;
+      case "isMobileCreativeOpen":
+        setIsMobileCreativeOpen(true);
         break;
     }
   };
@@ -58,6 +68,12 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       case "isStackOpen":
         setIsStackOpen(false);
         break;
+      case "isMobileTechOpen":
+        setIsMobileTechOpen(false);
+        break;
+      case "isMobileCreativeOpen":
+        setIsMobileCreativeOpen(false);
+        break;
     }
   };
 
@@ -68,6 +84,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         isProjectsOpen,
         isContactOpen,
         isStackOpen,
+        isMobileTechOpen,
+        isMobileCreativeOpen,
         openModal,
         closeModal,
       }}

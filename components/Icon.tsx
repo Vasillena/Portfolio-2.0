@@ -19,7 +19,7 @@ import StackIconM from "@/icons/m-stack-icon.svg";
 import TechIconM from "@/icons/m-tech-icon.svg";
 
 type IconProps = {
-  title: string;
+  title?: string;
   href?: string;
   icon: IconName;
   onClick?: () => void;
@@ -41,7 +41,7 @@ const ICONS = {
   Portrait: { desktop: undefined, mobile: PortraitM },
 } as const;
 
-type IconName = keyof typeof ICONS;
+export type IconName = keyof typeof ICONS;
 
 export default function Icon({ title, href, icon, onClick }: IconProps) {
   const { desktop: DesktopIcon, mobile: MobileIcon } = ICONS[icon];
@@ -53,7 +53,9 @@ export default function Icon({ title, href, icon, onClick }: IconProps) {
       )}
 
       <div className="xl:hidden flex flex-col justify-center items-center sm:w-full sm:h-full">
-        <MobileIcon className="w-full h-full sm:p-2" />
+        {/* <MobileIcon className="w-full h-full sm:p-2" /> */}
+        <MobileIcon className="w-full h-full" />
+
         <p className="md:text-4xl">{title}</p>
       </div>
     </>

@@ -29,14 +29,17 @@ export default function Hero() {
 
   return (
     <>
-      <section
+      {/* <section
         className="max-w-7xl mx-auto relative h-screen grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)] sm:grid-cols-[minmax(0,1fr)_minmax(0,6fr)] xl:grid-cols-2 gap-4 xl:gap-0 px-4 
   bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
    bg-no-repeat bg-center bg-size-[560%] sm:bg-size-[400%] bg-[#151515] dark:bg-white
   xl:bg-none! xl:bg-transparent!"
-        // style={{
-        //   backgroundSize: "560%",
-        // }}
+      > */}
+      <section
+        className="max-w-7xl mx-auto relative h-screen grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)] sm:grid-cols-2 gap-4 sm:gap-0 px-4 
+  bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
+   bg-no-repeat bg-center bg-size-[460%] sm:bg-size-[300%] md:bg-size-[170%] bg-white dark:bg-[#151515]
+  xl:bg-none! xl:bg-transparent!"
       >
         {/* LEFT SIDE */}
         <div className="relative pt-10">
@@ -46,12 +49,15 @@ export default function Hero() {
           {up("xl") && <Player src="/cloud-of-sorrow.mp3" />}
 
           {/* Vertical text */}
-          <div className="fixed xl:absolute xl:right-0 top-1/2 -translate-y-1/2 scale-90 sm:scale-110 xl:scale-100">
+          {/* <div className="fixed xl:absolute xl:right-0 top-1/2 -translate-y-1/2 scale-90 sm:scale-110 xl:scale-100">
+            <div className="relative inline-block">
+              <PortfolioText className="h-[80vh] w-auto dark:invert dark:brightness-0" /> */}
+          <div className="fixed sm:absolute sm:right-0 sm:top-20 xl:top-1/2 xl:-translate-y-1/2 sm:-mr-1 xl:mr-0 scale-90 xl:scale-100">
             <div className="relative inline-block">
               <PortfolioText className="h-[80vh] w-auto dark:invert dark:brightness-0" />
 
               {/* Divider */}
-              <div className="xl:hidden pointer-events-none absolute -top-20 right-0 h-full">
+              <div className="sm:hidden pointer-events-none absolute -top-20 right-0 h-full">
                 <div className="h-screen w-px bg-black dark:bg-white" />
               </div>
             </div>
@@ -59,28 +65,24 @@ export default function Hero() {
         </div>
 
         {/* Divider */}
-        <div className="hidden xl:block absolute left-1/2 top-0 h-full w-px bg-black dark:bg-white" />
+        <div className="hidden sm:block absolute left-1/2 top-0 h-full w-px bg-black dark:bg-white" />
 
         {/* RIGHT SIDE */}
 
         <div className="relative flex items-center justify-center">
-          <div className="hidden xl:block">
+          <div className="hidden sm:block">
             <ModeToggle />
           </div>
 
-          <div className="hidden relative -left-8 xl:flex h-full w-full flex-col items-center justify-center">
+          {/* <div className="hidden relative -left-8 xl:flex h-full w-full flex-col items-center justify-center">
             <div
               className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat bg-[url(/hero-elipse.png)] bg-size-[70%] dark:invert dark:brightness-0 lg:block"
-              // style={{
-              //   // backgroundImage: `url(${elipse.src})`,
-              //   backgroundSize: "70%",
-              //   filter:
-              //     theme === "dark" ? "invert(1) brightness(2)" : undefined,
-              // }}
-            />
+            /> */}
+          <div className="hidden relative left-20 md:left-12 lg:-left-6 xl:-left-8 sm:flex h-full w-full flex-col items-center justify-center">
+            <div className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat xl:bg-[url(/hero-elipse.png)] bg-size-[70%] dark:invert dark:brightness-0 sm:block" />
 
             <h1
-              className={`relative -left-20 -top-12 z-10 text-[80px] ${MazzardThin.className}`}
+              className={`relative -left-20 -top-12 z-10 text-[80px] scale-75 xl:scale-100 ${MazzardThin.className}`}
             >
               <span className="block">
                 <span className={`text-xl ${MazzardThin.className}`}>
@@ -105,8 +107,8 @@ export default function Hero() {
           </div>
 
           <Mobile />
-          <Tablet />
         </div>
+        <Tablet />
 
         {/* MODALS */}
         <About isOpen={isAboutOpen} onClose={() => closeModal("isAboutOpen")} />

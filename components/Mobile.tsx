@@ -1,6 +1,8 @@
 import Clock from "./Clock";
 import Icon from "./Icon";
+import MobileCreative from "./MobileCreative";
 import MobileStack from "./MobilelStack";
+import MobileTech from "./MobileTech";
 import ModeToggle from "./ModeToggle";
 import dynamic from "next/dynamic";
 // import Player from "./Player";
@@ -58,9 +60,17 @@ export default function Mobile() {
         </div>
 
         <div className="flex col-span-3 w-full h-full gap-x-6 justify-center items-center">
-          <Icon title="Creative" icon="Creative" />
+          <Icon
+            title="Creative"
+            icon="Creative"
+            onClick={() => openModal("isMobileCreativeOpen")}
+          />
 
-          <Icon title="Tech" icon="Tech" />
+          <Icon
+            title="Tech"
+            icon="Tech"
+            onClick={() => openModal("isMobileTechOpen")}
+          />
 
           <Icon
             title="Contact"
@@ -108,6 +118,8 @@ export default function Mobile() {
 
       {/* MODAL */}
       <MobileStack />
+      <MobileTech />
+      <MobileCreative />
     </>
   );
 }

@@ -98,7 +98,7 @@ a {
   /* .dark\:animate-glow {
     animation: glow 2s var(--ease-glow) infinite;
   } */
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     .dark .animate-glow {
       animation: glow 2s var(--ease-glow) infinite;
     }

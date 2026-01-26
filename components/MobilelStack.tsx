@@ -9,10 +9,10 @@ export default function MobileStack() {
   return (
     <Modal isOpen={isStackOpen} onClose={() => closeModal("isStackOpen")}>
       <MobileModal>
-        <h2 className="text-3xl">Stack</h2>
+        <h2 className="text-3xl sm:text-4xl">Stack</h2>
         <StackIcons />
         <button
-          className="text-lg px-8 py-1"
+          className="text-lg sm:text-xl px-8 py-1"
           onClick={() => closeModal("isStackOpen")}
         >
           Close
