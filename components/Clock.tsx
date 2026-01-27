@@ -35,7 +35,7 @@ const Clock = () => {
         </div>
         {/* </div> */}
       </div>
-      <p className="md:text-4xl pt-2">Clock</p>
+      <p className="md:text-2xl pt-2">Clock</p>
     </div>
   );
 };

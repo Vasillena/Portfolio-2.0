@@ -56,7 +56,7 @@ export default function Icon({ title, href, icon, onClick }: IconProps) {
         {/* <MobileIcon className="w-full h-full sm:p-2" /> */}
         <MobileIcon className="w-full h-full" />
 
-        <p className="md:text-4xl">{title}</p>
+        <p className="md:text-2xl">{title}</p>
       </div>
     </>
   );

@@ -82,7 +82,7 @@ export default function Hero() {
             <div className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat xl:bg-[url(/hero-elipse.png)] bg-size-[70%] dark:invert dark:brightness-0 sm:block" />
 
             <h1
-              className={`relative -left-20 -top-12 z-10 text-[80px] scale-75 xl:scale-100 ${MazzardThin.className}`}
+              className={`relative -left-20 -top-12 sm:top-32 xl:-top-12 z-10 text-[80px] scale-75 xl:scale-100 ${MazzardThin.className}`}
             >
               <span className="block">
                 <span className={`text-xl ${MazzardThin.className}`}>

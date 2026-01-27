@@ -8,11 +8,62 @@ import overlay1 from "@/public/overlay-1.png";
 import { useModal } from "@/utils/ModalContext";
 import { useState } from "react";
 
-const techProjects = Array.from({ length: 8 }, (_, i) => ({
-  id: i + 1,
-  img: `/tech-project-${i + 1}.png`,
-  title: `Tech project ${i + 1}`,
-}));
+// const techProjects = Array.from({ length: 8 }, (_, i) => ({
+//   id: i + 1,
+//   img: `/m-tech-project-${i + 1}.png`,
+//   title: `Tech project ${i + 1}`,
+// }));
+
+const techProjects = [
+  {
+    id: 1,
+    img: "/m-creative-project-1.png",
+    title: "Personal Portfolio",
+    href: "#",
+  },
+  {
+    id: 2,
+    img: "/m-tech-project-2.png",
+    title: "Catering website",
+    href: "https://www.qcatering.bg/bg",
+  },
+  {
+    id: 3,
+    img: "/m-tech-project-3.png",
+    title: "Blog Website",
+    href: "#",
+  },
+  {
+    id: 4,
+    img: "/m-tech-project-4.png",
+    title: "Restaurant Website",
+    href: "https://www.saborna23.bg/bg",
+  },
+  {
+    id: 5,
+    img: "/m-tech-project-5.png",
+    title: "Bar Website",
+    href: "https://sipi.bg/bg",
+  },
+  {
+    id: 6,
+    img: "/m-tech-project-6.png",
+    title: "Bar Website",
+    href: "https://barthepost.bg/bg",
+  },
+  {
+    id: 7,
+    img: "/m-tech-project-7.png",
+    title: "Bar Website",
+    href: "https://q-bar.bg/bg",
+  },
+  {
+    id: 8,
+    img: "/m-tech-project-8.png",
+    title: "Portfolio Website",
+    href: "https://www.snezhana-aleksieva.com/bg",
+  },
+];
 
 export default function MobileTech() {
   const { isMobileTechOpen, closeModal } = useModal();
@@ -41,7 +92,7 @@ export default function MobileTech() {
         <h2 className="text-3xl">Tech Projects</h2>
         <div className="relative">
           <ProjectCard
-            href="#"
+            href={project.href}
             image={project.img}
             overlay={overlay1.src}
             title={project.title}

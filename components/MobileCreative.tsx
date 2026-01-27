@@ -11,25 +11,25 @@ import { useState } from "react";
 const creativeProjects = [
   {
     id: 1,
-    img: "/creative-project-1.png",
+    img: "/m-creative-project-1.png",
     title: "Personal Portfolio",
     href: "#",
   },
   {
     id: 2,
-    img: "/creative-project-2.png",
+    img: "/m-creative-project-2.png",
     title: "Travel app concept",
     href: "https://www.behance.net/gallery/228545489/Adventure-Club-App",
   },
   {
     id: 3,
-    img: "/creative-project-3.png",
+    img: "/m-creative-project-3.png",
     title: "Booking app concept",
     href: "https://www.behance.net/gallery/220312663/SiT-Restaurant-Booking-App",
   },
   {
     id: 4,
-    img: "/creative-project-4.png",
+    img: "/m-creative-project-4.png",
     title: "E-commerce concept",
     href: "https://www.behance.net/gallery/213872611/Aucwise",
   },
