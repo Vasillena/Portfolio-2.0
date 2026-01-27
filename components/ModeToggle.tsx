@@ -35,7 +35,7 @@ const ModeToggle = () => {
       type="button"
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="sm:absolute sm:-top-6 sm:right-4 sm:w-27 sm:h-42 sm:z-10 flex flex-col items-center animate-glow sm:scale-75"
+      className="sm:absolute sm:-top-6 sm:right-4 sm:w-27 sm:h-44 sm:z-10 flex flex-col items-center animate-glow sm:scale-75"
     >
       {isDark ? (
         // <Image src={bulbDark} width={60} height={93} alt="Theme toggle" />

@@ -58,7 +58,7 @@ export default function MobileCreative() {
       isOpen={isMobileCreativeOpen}
       onClose={() => closeModal("isMobileCreativeOpen")}
     >
-      <MobileModal>
+      <MobileModal icon="🎨">
         <h2 className="text-3xl">Creative Projects</h2>
         <div className="relative">
           <ProjectCard
@@ -74,6 +74,12 @@ export default function MobileCreative() {
             width={540}
             height={319}
           />
+        </div>
+
+        <div>
+          <p className={`text-xl ${MazzardExtraLight.className}`}>
+            {project.title}
+          </p>
         </div>
 
         <div className="flex justify-between items-center mt-6 gap-8">

@@ -8,7 +8,7 @@ export default function MobileStack() {
 
   return (
     <Modal isOpen={isStackOpen} onClose={() => closeModal("isStackOpen")}>
-      <MobileModal>
+      <MobileModal icon="🗃️">
         <h2 className="text-3xl sm:text-4xl">Stack</h2>
         <StackIcons />
         <button

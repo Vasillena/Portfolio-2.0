@@ -1,7 +1,5 @@
-"use client";
-
-import { useState } from "react";
-import Icon, { type IconName } from "./Icon";
+import Icon from "./Icon";
+import type { IconName } from "@/utils/iconsLibrary";
 import { useModal } from "@/utils/ModalContext";
 
 type DockItem = {
@@ -12,9 +10,7 @@ type DockItem = {
 };
 
 export default function TabletDock() {
-  const { isAboutOpen, isProjectsOpen, isContactOpen, openModal, closeModal } =
-    useModal();
-  const [hovered, setHovered] = useState<number | null>(null);
+  const { openModal } = useModal();
 
   const DOCK_ITEMS: DockItem[] = [
     { title: "About", icon: "About", onClick: () => openModal("isAboutOpen") },
@@ -63,7 +59,7 @@ export default function TabletDock() {
   ];
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2">
       <div
         className="
       flex
@@ -78,29 +74,16 @@ export default function TabletDock() {
       max-w-[95vw]
     "
       >
-        {DOCK_ITEMS.map((item, index) => {
-          const isHovered = hovered === index;
-          const isNear = hovered !== null && Math.abs(hovered - index) === 1;
-
+        {DOCK_ITEMS.map((item) => {
           return (
-            <div
-              key={item.title}
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
-              className="transition-all duration-200"
-              style={{
-                transform: isHovered
-                  ? "scale(1.45)"
-                  : isNear
-                  ? "scale(1.2)"
-                  : "scale(1)",
-              }}
-            >
+            <div key={item.title}>
               <div className="w-[clamp(42px,6vw,67px)] h-[clamp(42px,6vw,67px)] flex items-center justify-center">
                 <Icon
                   icon={item.icon}
+                  title={item.title}
                   href={item.href}
                   onClick={item.onClick}
+                  showLabel={false}
                 />
               </div>
             </div>

@@ -88,7 +88,7 @@ export default function MobileTech() {
       isOpen={isMobileTechOpen}
       onClose={() => closeModal("isMobileTechOpen")}
     >
-      <MobileModal>
+      <MobileModal icon="⌨️">
         <h2 className="text-3xl">Tech Projects</h2>
         <div className="relative">
           <ProjectCard
@@ -106,35 +106,39 @@ export default function MobileTech() {
           />
         </div>
 
-        <div className="flex justify-between items-center mt-6 px-10">
-          <div className="flex justify-between items-center mt-6 gap-8">
-            {/* <button
+        <div>
+          <p className={`text-xl ${MazzardExtraLight.className}`}>
+            {project.title}
+          </p>
+        </div>
+
+        <div className="flex justify-between items-center mt-6 gap-8">
+          {/* <button
             onClick={prevProject}
             className="text-3xl active:scale-95 transition"
           >
             ←
           </button> */}
-            <ModalButton
-              icon={<BackIcon className="w-9 h-9" />}
-              onClick={prevProject}
-            />
+          <ModalButton
+            icon={<BackIcon className="w-9 h-9" />}
+            onClick={prevProject}
+          />
 
-            <span className="text-sm">
-              {currentIndex + 1} / {techProjects.length}
-            </span>
+          <span className="text-sm">
+            {currentIndex + 1} / {techProjects.length}
+          </span>
 
-            {/* <button
+          {/* <button
             onClick={nextProject}
             className="text-3xl active:scale-95 transition"
           >
             →
           </button> */}
 
-            <ModalButton
-              icon={<BackIcon className="w-9 h-9 scale-x-[-1]" />}
-              onClick={nextProject}
-            />
-          </div>
+          <ModalButton
+            icon={<BackIcon className="w-9 h-9 scale-x-[-1]" />}
+            onClick={nextProject}
+          />
         </div>
 
         <button

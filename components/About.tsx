@@ -159,7 +159,7 @@ export default function About({ isOpen, onClose }: AboutProps) {
       </div>
 
       {/* Mobile */}
-      <MobileModal>
+      <MobileModal icon="🦄">
         <h2 className="text-3xl sm:text-4xl">About me</h2>
         <p
           className={`text-lg sm:text-xl leading-5 ${MazzardExtraLight.className}`}

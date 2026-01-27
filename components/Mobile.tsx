@@ -1,7 +1,7 @@
 import Clock from "./Clock";
 import Icon from "./Icon";
 import MobileCreative from "./MobileCreative";
-import MobileStack from "./MobilelStack";
+import MobileStack from "./MobileStack";
 import MobileTech from "./MobileTech";
 import ModeToggle from "./ModeToggle";
 import dynamic from "next/dynamic";
@@ -20,8 +20,7 @@ import { useModal } from "@/utils/ModalContext";
 const Player = dynamic(() => import("./Player"), { ssr: false });
 
 export default function Mobile() {
-  const { isAboutOpen, isProjectsOpen, isContactOpen, openModal, closeModal } =
-    useModal();
+  const { openModal } = useModal();
 
   return (
     <>

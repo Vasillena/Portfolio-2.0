@@ -58,12 +58,12 @@ export default function Contact({ isOpen, onClose }: ModalProps) {
               name="name"
               aria-label="Name"
               required
-              placeholder="Vasilena"
-              className="block mt-1 w-full rounded-lg border border-[#D9D9D9] sm:border-[#4c4c4c] sm:dark:border-[#D9D9D9] px-3 py-2 bg-transparent  outline-none  appearance-none focus:outline-none focus:ring-0"
+              placeholder=""
+              className="block mt-1 w-full rounded-lg border border-[#D9D9D9] sm:border-[#4c4c4c] sm:dark:border-[#D9D9D9] px-3 py-2 bg-transparent  outline-none  appearance-none focus:outline-none focus:ring-0 peer"
             />
             <label
               htmlFor="name"
-              className="absolute duration-300 transform -translate-y-5 sm:-translate-y-4 scale-75 top-1 z-10 origin-left bg-white sm:bg-[#101010] sm:dark:bg-[#F3F3F3] px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-5 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1 text-xl"
+              className="absolute duration-300 transform -translate-y-5 sm:-translate-y-4 scale-75 top-1 z-10 origin-left bg-white sm:bg-[#101010] sm:dark:bg-[#F3F3F3] px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-5 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1 text-md"
             >
               Name
             </label>

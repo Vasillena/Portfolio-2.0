@@ -36,7 +36,7 @@ export default function Hero() {
   xl:bg-none! xl:bg-transparent!"
       > */}
       <section
-        className="max-w-7xl mx-auto relative h-screen grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)] sm:grid-cols-2 gap-4 sm:gap-0 px-4 
+        className="max-w-7xl mx-auto relative h-dvh xl:h-screen grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)] sm:grid-cols-2 gap-4 sm:gap-0 px-4 
   bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
    bg-no-repeat bg-center bg-size-[460%] sm:bg-size-[300%] md:bg-size-[170%] bg-white dark:bg-[#151515]
   xl:bg-none! xl:bg-transparent!"

@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -22,8 +23,47 @@ export default function ProjectCard({
   width,
   height,
 }: ProjectCardProps) {
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  useEffect(() => {
+    // започваме с основната снимка
+    let isMounted = true;
+    const interval = setInterval(() => {
+      if (window.innerWidth < 1280 && isMounted) {
+        setShowOverlay((prev) => !prev); // показваме/скриваме overlay
+      }
+    }, 2500); // сменя се на всеки 2.5 сек
+
+    // забавяне на първото показване на overlay
+    const timeout = setTimeout(() => {
+      if (window.innerWidth < 1280 && isMounted) {
+        setShowOverlay(true);
+      }
+    }, 1500); // изчаква 1.5 сек преди първото показване
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1280) {
+        setShowOverlay(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+      clearTimeout(timeout);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <Link href={href} target="_blank" style={{ width, height }}>
+    <Link
+      href={href}
+      target="_blank"
+      style={{ width, height }}
+      className="relative group"
+    >
+      {/* Основна снимка */}
       <Image
         src={image}
         alt={title}
@@ -33,27 +73,45 @@ export default function ProjectCard({
         className="object-contain"
       />
 
-      <Image
-        src={overlay}
-        alt=""
-        width={width}
-        height={height}
-        className="absolute inset-0 w-full h-full object-cover
-                   opacity-0 group-hover:opacity-100
-                   transition-opacity duration-300"
-      />
-
-      <p
-        className="absolute inset-0 z-20 p-6
-                   flex flex-col items-center justify-center
-                   text-black text-center text-3xl
-                   opacity-0 group-hover:opacity-100
-                   transition-opacity duration-300
-                   pointer-events-none"
+      {/* Overlay + текст за мобилни (<xl) */}
+      <div
+        className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center
+          transition-opacity duration-700
+          xl:hidden
+          ${showOverlay ? "opacity-100" : "opacity-0"}`}
       >
-        {title}
-        {subtitle && <span className="text-xl">{subtitle}</span>}
-      </p>
+        <Image
+          src={overlay}
+          alt=""
+          width={width}
+          height={height}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <p className="relative z-20 text-black text-center text-3xl pointer-events-none">
+          {title}
+          {subtitle && <span className="text-xl block mt-2">{subtitle}</span>}
+        </p>
+      </div>
+
+      {/* Overlay + текст за десктоп (hover ефект) */}
+      <div
+        className="hidden xl:flex absolute inset-0 w-full h-full  flex-col items-center justify-center
+                      opacity-0 hover:opacity-100 transition-opacity duration-300"
+      >
+        <Image
+          src={overlay}
+          alt="Overlay image"
+          width={width}
+          height={height}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <p className="relative z-20 text-black text-center text-3xl pointer-events-none">
+          {title}
+          {subtitle && <span className="text-xl block mt-2">{subtitle}</span>}
+        </p>
+      </div>
     </Link>
   );
 }

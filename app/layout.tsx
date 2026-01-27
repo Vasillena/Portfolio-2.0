@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import LockScreen from "@/components/LockScreen";
 import { MazzardRegular } from "@/utils/fonts";
 import type { Metadata } from "next";
 import { ModalProvider } from "@/utils/ModalContext";
@@ -25,6 +26,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ModalProvider>
+            <LockScreen />
             {/* <Nav /> */}
             {children}
           </ModalProvider>
