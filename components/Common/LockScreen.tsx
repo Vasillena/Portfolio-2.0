@@ -1,0 +1,131 @@
+"use client";
+
+import { unlockOverlayFade, unlockOverlaySwipeUp } from "@/utils/animations";
+import { useEffect, useRef, useState } from "react";
+
+import Logo from "@/icons/v-logo.svg";
+
+const detectTouchDevice = () => {
+  if (typeof window === "undefined") return false;
+
+  return (
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.matchMedia("(pointer: coarse)").matches
+  );
+};
+
+export default function SiteOverlay() {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const startY = useRef<number | null>(null);
+
+  const [locked, setLocked] = useState(true);
+  const [showVideo, setShowVideo] = useState(false);
+  const [showFade, setShowFade] = useState(false);
+  const [showButton, setShowButton] = useState(true);
+
+  const isTouch =
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(pointer: coarse)").matches);
+
+  const unlockSite = () => {
+    unlockOverlayFade(overlayRef.current, () => setLocked(false));
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (!isTouch) return;
+    startY.current = e.touches[0].clientY;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!isTouch || !startY.current) return;
+
+    const delta = startY.current - e.changedTouches[0].clientY;
+
+    if (delta > 80) {
+      unlockOverlaySwipeUp(overlayRef.current, () => setLocked(false));
+    }
+
+    startY.current = null;
+  };
+
+  const handleStartClick = () => {
+    setShowButton(false);
+    setShowVideo(true);
+  };
+
+  useEffect(() => {
+    if (showVideo && videoRef.current) {
+      const playPromise = videoRef.current.play();
+      playPromise?.catch((err) => console.log("Autoplay blocked", err));
+    }
+  }, [showVideo]);
+
+  const handleVideoEnd = () => {
+    setShowFade(true);
+    setTimeout(() => unlockSite(), 1000);
+  };
+
+  if (!locked) return null;
+
+  return (
+    <div
+      ref={overlayRef}
+      className="fixed inset-0 z-9999 bg-white text-black"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* TOUCH DEVICES */}
+      {isTouch && (
+        <div
+          className="h-full flex flex-col items-center justify-center text-center  bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
+   bg-no-repeat bg-center bg-size-[460%] sm:bg-size-[300%] md:bg-size-[170%] bg-white dark:bg-[#151515]"
+        >
+          <Logo className="w-80 md:w-160 h-auto dark:invert dark:brightness-0" />
+          <p className="text-sm opacity-60 mt-20 mb-6 dark:text-white">
+            Swipe up to unlock
+          </p>
+          <div className="h-10 w-1 rounded-full bg-black/40 dark:bg-white/40 animate-pulse" />
+        </div>
+      )}
+
+      {/*  DESKTOP */}
+      {!isTouch && (
+        <div className="fixed inset-0 overflow-hidden">
+          {showVideo && (
+            <video
+              ref={videoRef}
+              className="absolute inset-0 w-full h-full object-cover"
+              src="/lock-screen-2.mp4"
+              playsInline
+              onEnded={handleVideoEnd}
+            />
+          )}
+
+          <div
+            className={`absolute inset-0 bg-white transition-opacity duration-1000 ${
+              showFade ? "opacity-100" : "opacity-0"
+            }`}
+          />
+
+          {showButton && (
+            <button
+              onClick={handleStartClick}
+              className="absolute inset-0 m-auto h-fit w-fit
+                         px-10 py-3 rounded-full
+                         border border-black text-black
+                         bg-white/80 backdrop-blur
+                         hover:bg-black hover:text-white
+                         transition-all duration-300"
+            >
+              ENTER EXPERIENCE
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,5 +1,36 @@
-// animations.ts
 import gsap from "gsap";
+
+// Desktop unlock – fade out
+export const unlockOverlayFade = (
+  element: HTMLElement | null,
+  onComplete?: () => void,
+  duration = 1.6
+) => {
+  if (!element) return;
+
+  gsap.to(element, {
+    opacity: 0,
+    duration,
+    ease: "power2.out",
+    onComplete,
+  });
+};
+
+// Mobile swipe unlock – slide up
+export const unlockOverlaySwipeUp = (
+  element: HTMLElement | null,
+  onComplete?: () => void,
+  duration = 0.9
+) => {
+  if (!element) return;
+
+  gsap.to(element, {
+    y: "-100%",
+    duration,
+    ease: "power3.inOut",
+    onComplete,
+  });
+};
 
 // Overlay fade in
 export const fadeInOverlay = (element: HTMLElement | null, duration = 0.3) => {
@@ -36,18 +67,6 @@ export const slideImageAndShowText = (
   gsap.to(textEl, { opacity: 1, x: xText, duration, ease: "power2.out" });
 };
 
-// export const slideImageAndShowText = (
-//   imgEl: HTMLElement | null,
-//   textEl: HTMLElement | null,
-//   xImg = -200,
-//   xText = -100,
-//   duration = 1
-// ) => {
-//   if (!imgEl || !textEl) return;
-//   gsap.to(imgEl, { x: xImg, duration, ease: "power2.out" });
-//   gsap.to(textEl, { opacity: 1, x: xText, duration, ease: "power2.out" });
-// };
-
 // Slide image and show icons
 export const slideImageAndShowIcons = (
   imgEl: HTMLElement | null,
@@ -70,24 +89,6 @@ export const slideImageAndShowIcons = (
   });
 };
 
-// export const slideImageAndShowIcons = (
-//   imgEl: HTMLElement | null,
-//   iconsEl: HTMLElement | null,
-//   xImg = -200,
-//   xIcons = -50,
-//   duration = 1
-// ) => {
-//   if (!imgEl || !iconsEl) return;
-//   gsap.to(imgEl, { x: xImg, duration, ease: "power2.out" });
-//   gsap.to(iconsEl, {
-//     opacity: 1,
-//     x: xIcons,
-//     duration,
-//     ease: "power2.out",
-//     display: "flex",
-//   });
-// };
-
 // Reset hover
 export const resetHover = (
   imgEl: HTMLElement | null,
@@ -103,18 +104,7 @@ export const resetHover = (
     gsap.to(iconsEl, { opacity: 0, x: 50, duration: 0.6, ease: "power2.out" });
 };
 
-// export const resetHover = (
-//   imgEl: HTMLElement | null,
-//   textEl?: HTMLElement | null,
-//   iconsEl?: HTMLElement | null
-// ) => {
-//   if (imgEl) gsap.to(imgEl, { x: 0, duration: 1.5, ease: "power2.out" });
-//   if (textEl)
-//     gsap.to(textEl, { opacity: 0, x: 50, duration: 1, ease: "power2.out" });
-//   if (iconsEl)
-//     gsap.to(iconsEl, { opacity: 0, x: 50, duration: 1, ease: "power2.out" });
-// };
-
+// Scale content
 export const scaleContentToFit = (
   modalEl: HTMLElement | null,
   contentEl: HTMLElement | null,
