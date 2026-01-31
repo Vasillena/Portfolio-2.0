@@ -7,20 +7,50 @@ import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   title: "Vasilena Yoneva | vasilena.space",
-  description: "Personal Portfolio Page",
+  description:
+    "Frontend developer & designer focused on clean UI, thoughtful UX and modern web technologies.",
   keywords: [
-    "Василена Йонева",
-    "портфолио",
-    "програмист",
-    "дизайнер",
     "Vasilena Yoneva",
+    "Василена Йонева",
+    "frontend developer",
+    "web developer",
+    "UI designer",
+    "React",
+    "Next.js",
     "portfolio",
-    "coder",
-    "developer",
-    "designer",
   ],
+  authors: [{ name: "Vasilena Yoneva", url: "https://vasilena.space" }],
+  creator: "Vasilena Yoneva",
+  applicationName: "Vasilena Yoneva Portfolio",
+  category: "technology",
   alternates: {
     canonical: "https://vasilena.space",
+  },
+  openGraph: {
+    title: "Vasilena Yoneva | vasilena.space",
+    description: "Personal Portfolio",
+    url: "https://vasilena.space",
+    siteName: "vasilena.space",
+    images: [
+      {
+        url: "https://vasilena.space/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Vasilena Yoneva Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vasilena Yoneva | Portfolio",
+    description: "Personal Portfolio",
+    images: ["https://vasilena.space/opengraph-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

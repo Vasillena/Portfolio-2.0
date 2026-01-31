@@ -31,18 +31,20 @@ xl:bg-none! xl:bg-transparent!"
       {/* RIGHT SIDE */}
 
       <div className="relative flex items-center justify-center">
-        <div className="relative left-20 md:left-12 lg:-left-6 xl:-left-8 sm:flex h-full w-full flex-col items-start justify-center">
-          <div className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat xl:bg-[url(/hero-elipse.png)] bg-size-[70%] dark:invert dark:brightness-0 sm:block" />
-
+        <div className="relative lg:-ml-60 flex h-full w-auto flex-col items-start justify-center gap-8">
           <p
-            className={`relative left-16 top-1/2 -translate-y-1/2 sm:translate-y-0 sm:top-0 xl:-top-12 z-10 text-[80px] scale-75 xl:scale-100 leading-3 sm:leading-normal ${MazzardExtraLight.className}`}
+            className={`relative z-10 text-[80px] leading-3 sm:leading-normal ${MazzardExtraLight.className}`}
           >
-            {/* <span className="block"> */}
             <span className={`text-xl ${MazzardThin.className}`}>
               &lt;p&gt;
+              <span
+                className={`text-xl sm:text-2xl ${MazzardExtraLight.className}`}
+              >
+                The page you’re
+              </span>
             </span>
-            <span className="text-2xl">The page you’re</span>{" "}
-            <span className="sm:block text-2xl">
+
+            <span className="block text-xl sm:text-2xl">
               looking for doesn’t exist.
               <span className={`text-xl ${MazzardThin.className}`}>
                 &lt;/p&gt;
@@ -51,7 +53,7 @@ xl:bg-none! xl:bg-transparent!"
           </p>
           <Link
             href="/"
-            className="relative left-16 w-48 rounded-lg text-center bg-black dark:bg-white dark:hover:bg-gray-800 py-2 text-md text-white! dark:text-black! transition"
+            className="relative w-full rounded-lg text-center bg-black dark:bg-white dark:hover:bg-gray-800 py-2 text-md text-white! dark:text-black! transition"
           >
             Back to Home
           </Link>
