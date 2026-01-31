@@ -26,16 +26,16 @@ export default function Contact({ isOpen, onClose }: ModalProps) {
         email: e.target.email.value,
         message: e.target.message.value,
         apikey: "a22df2ad-f29f-4c25-a4d0-077cffb32a84",
-        redirect: "https://www.snezhana-aleksieva.com/thank-you",
+        redirect: "https://www.vasilena.space/thank-you",
       }),
     });
     const result = await response.json();
     if (result.success) {
-      window.location.href = "https://www.snezhana-aleksieva.com/thank-you";
+      window.location.href = "https://www.vasilena.space/thank-you";
       console.log(result);
     } else {
       console.error("Form submission failed:", result);
-      window.location.href = "https://www.snezhana-aleksieva.com/form-failed";
+      window.location.href = "https://www.vasilena.space/form-failed";
     }
   }
 
@@ -110,7 +110,7 @@ export default function Contact({ isOpen, onClose }: ModalProps) {
             <input
               type="hidden"
               name="redirect"
-              value="https://www.snezhana-aleksieva.com/thank-you"
+              value="https://www.vasilena.space/thank-you"
             />
           </div>
 

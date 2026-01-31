@@ -1,4 +1,5 @@
-form redirect (thank you page)
-not found page
+
 projects links
 projects cards
+
+lock screen only once and touch devices

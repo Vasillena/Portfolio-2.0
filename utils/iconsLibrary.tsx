@@ -41,11 +41,6 @@ import TechIconM from "@/icons/m-tech-icon.svg";
 import UIUX from "@/icons/stack-icon-11.svg";
 import UIUXM from "@/icons/m-stack-icon-11.svg";
 
-// type IconSet = {
-//   desktop: FC<SVGProps<SVGSVGElement>>;
-//   mobile: FC<SVGProps<SVGSVGElement>>;
-// };
-
 export const ICONS = {
   Facebook: { desktop: FacebookIcon, mobile: FacebookIconM },
   Instagram: { desktop: InstagramIcon, mobile: InstagramIconM },

@@ -95,8 +95,8 @@ export default function MobileTech() {
                 Click to view project →
               </span>
             }
-            width={340}
-            height={119}
+            width={250}
+            height={340}
           />
         </div>
 

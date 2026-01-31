@@ -61,33 +61,36 @@ export default function ProjectCard({
       style={{ width, height }}
       className="relative group"
     >
-      <Image
-        src={image}
-        alt={title}
-        width={width}
-        height={height}
-        priority
-        className="object-contain"
-      />
+      {/* <div className="relative overflow-hidden" style={{ width, height }}> */}
+      <div className="relative overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          width={width}
+          height={height}
+          priority
+          className="object-contain"
+        />
 
-      <div
-        className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center
+        <div
+          className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center
           transition-opacity duration-700
           xl:hidden
           ${showOverlay ? "opacity-100" : "opacity-0"}`}
-      >
-        <Image
-          src={overlay}
-          alt=""
-          width={width}
-          height={height}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        >
+          <Image
+            src={overlay}
+            alt="Project name overlay"
+            width={width}
+            height={height}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
-        <p className="relative z-20 text-black text-center text-3xl pointer-events-none">
-          {title}
-          {subtitle && <span className="text-xl block mt-2">{subtitle}</span>}
-        </p>
+          <p className="relative z-20 text-black text-center text-3xl pointer-events-none">
+            {title}
+            {subtitle && <span className="text-xl block mt-2">{subtitle}</span>}
+          </p>
+        </div>
       </div>
 
       <div
@@ -96,7 +99,7 @@ export default function ProjectCard({
       >
         <Image
           src={overlay}
-          alt="Overlay image"
+          alt="Project name overlay"
           width={width}
           height={height}
           className="absolute inset-0 w-full h-full object-cover"

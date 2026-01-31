@@ -71,8 +71,8 @@ export default function MobileCreative() {
                 Click to view project →
               </span>
             }
-            width={540}
-            height={319}
+            width={250}
+            height={340}
           />
         </div>
 
