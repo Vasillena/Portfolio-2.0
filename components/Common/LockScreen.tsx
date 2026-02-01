@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { unlockOverlayFade, unlockOverlaySwipeUp } from "@/utils/animations";
@@ -11,6 +12,7 @@ export default function SiteOverlay() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const startY = useRef<number | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   /* ------------------ STATE ------------------ */
   const [locked, setLocked] = useState<boolean | null>(null);
@@ -72,9 +74,31 @@ export default function SiteOverlay() {
   };
 
   /* ------------------ DESKTOP VIDEO ------------------ */
+  // const handleStartClick = () => {
+  //   setShowButton(false);
+  //   setShowVideo(true);
+  // };
+
   const handleStartClick = () => {
     setShowButton(false);
     setShowVideo(true);
+
+    // стартирай аудиото
+    if (audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => {
+          console.log("Audio started");
+        })
+        .catch((err) => {
+          console.warn("Audio failed to play:", err);
+        });
+    }
+
+    // стартирай видео
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
   };
 
   useEffect(() => {
@@ -83,8 +107,19 @@ export default function SiteOverlay() {
     }
   }, [showVideo]);
 
+  // const handleVideoEnd = () => {
+  //   setShowFade(true);
+  //   setTimeout(unlockSite, 1000);
+  // };
+
   const handleVideoEnd = () => {
     setShowFade(true);
+
+    // меко заглъхване (по избор)
+    if (audioRef.current) {
+      audioRef.current.volume = 0.3;
+    }
+
     setTimeout(unlockSite, 1000);
   };
 
@@ -124,13 +159,24 @@ export default function SiteOverlay() {
       {!isTouch && (
         <div className="fixed inset-0 overflow-hidden">
           {showVideo && (
-            <video
-              ref={videoRef}
-              className="absolute inset-0 w-full h-full object-cover"
-              src="/lock-screen-2.mp4"
-              playsInline
-              onEnded={handleVideoEnd}
-            />
+            <>
+              <video
+                ref={videoRef}
+                className="absolute inset-0 w-full h-full object-cover"
+                src="/lock-screen.webm"
+                muted
+                playsInline
+                onEnded={handleVideoEnd}
+              />
+              <audio
+                ref={audioRef}
+                src="/lock-screen.mp3"
+                preload="auto"
+                autoPlay
+                controls={false}
+                className="hidden"
+              />
+            </>
           )}
 
           <div

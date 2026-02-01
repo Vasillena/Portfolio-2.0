@@ -15,7 +15,7 @@ import MobileModal from "../Responsive/MobileModal";
 import Modal from "../Common/Modal";
 import { ModalButton } from "../Common/ModalButtons";
 import StackIcons from "./StackIcons";
-import portrait from "@/public/portrait.png";
+import portrait from "@/public/portrait.webp";
 import { useRef } from "react";
 
 type AboutProps = {

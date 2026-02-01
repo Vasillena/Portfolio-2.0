@@ -33,7 +33,7 @@ export default function Hero() {
       > */}
       <section
         className="max-w-7xl mx-auto relative h-dvh xl:h-screen grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)] sm:grid-cols-2 gap-4 sm:gap-0 px-4 
-  bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
+  bg-[url(/bg-l.webp)] dark:bg-[url(/bg-d.webp)]
    bg-no-repeat bg-center bg-size-[460%] sm:bg-size-[300%] md:bg-size-[170%] bg-white dark:bg-[#151515]
   xl:bg-none! xl:bg-transparent!"
       >
@@ -75,7 +75,7 @@ export default function Hero() {
               className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat bg-[url(/hero-elipse.png)] bg-size-[70%] dark:invert dark:brightness-0 lg:block"
             /> */}
           <div className="hidden relative left-20 md:left-12 lg:-left-6 xl:-left-8 sm:flex h-full w-full flex-col items-center justify-center">
-            <div className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat xl:bg-[url(/hero-elipse.png)] bg-size-[70%] dark:invert dark:brightness-0 sm:block" />
+            <div className="pointer-events-none absolute -top-10 left-[-2em] hidden h-full w-full bg-center bg-no-repeat xl:bg-[url(/hero-elipse.webp)] bg-size-[70%] dark:invert dark:brightness-0 sm:block" />
 
             <h1
               className={`relative -left-20 -top-12 sm:top-20 xl:-top-12 z-10 text-[80px] scale-75 xl:scale-100 ${MazzardThin.className}`}
