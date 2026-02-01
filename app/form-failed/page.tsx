@@ -12,7 +12,7 @@ export default async function FormFailedPage() {
   return (
     <section
       className="max-w-7xl mx-auto relative h-dvh xl:h-screen grid grid-cols-[minmax(0,1fr)_minmax(0,3fr)] sm:grid-cols-2 gap-4 sm:gap-0 px-4 
-bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
+bg-[url(/bg-l.webp)] dark:bg-[url(/bg-d.webp)]
 bg-no-repeat bg-center bg-size-[460%] sm:bg-size-[300%] md:bg-size-[170%] bg-white dark:bg-[#151515]
 xl:bg-none! xl:bg-transparent!"
     >

@@ -139,13 +139,13 @@ export default function SiteOverlay() {
         <div
           className="
             h-full flex flex-col items-center justify-center text-center
-            bg-[url(/bg-l.png)] dark:bg-[url(/bg-d.png)]
+            bg-[url(/bg-l.webp)] dark:bg-[url(/bg-d.webp)]
             bg-no-repeat bg-center
             bg-size-[460%] sm:bg-size-[300%] md:bg-size-[170%]
             bg-white dark:bg-[#151515]
           "
         >
-          <Logo className="w-80 md:w-160 h-auto dark:invert dark:brightness-0" />
+          <Logo className="w-80 md:w-140 h-auto dark:invert dark:brightness-0" />
 
           <p className="text-sm opacity-60 mt-20 mb-6 dark:text-white">
             Swipe up to unlock
