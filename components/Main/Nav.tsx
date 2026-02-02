@@ -7,7 +7,7 @@ export default function Nav() {
 
   return (
     <nav
-      className={`hidden xl:flex text-2xl tracking-wide ${MazzardExtraLight.className}`}
+      className={`flex text-2xl tracking-wide ${MazzardExtraLight.className}`}
     >
       <button
         className="group flex items-center gap-2"

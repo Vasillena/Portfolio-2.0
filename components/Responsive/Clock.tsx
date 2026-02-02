@@ -8,17 +8,16 @@ const Clock = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
+    const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const hours = time.getHours().toString().padStart(2, "0");
-  const minutes = time.getMinutes().toString().padStart(2, "0");
+  const hours = String(time.getHours()).padStart(2, "0");
+  const minutes = String(time.getMinutes()).padStart(2, "0");
+
+  const formatter = new Intl.DateTimeFormat("default", { month: "long" });
+  const month = formatter.format(time);
   const date = time.getDate();
-  const month = time.toLocaleString("default", { month: "long" });
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">

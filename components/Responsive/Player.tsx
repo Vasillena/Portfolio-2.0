@@ -73,7 +73,7 @@ transition-opacity duration-500 ease-in-out pointer-events-none
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? "Pause" : "Play"}
-            className="absolute w-12 h-12 rounded-full border border-[#D9D9D9] bg-white flex items-center justify-center hover:scale-105 transition"
+            className="absolute w-10 h-10 rounded-full border border-[#D9D9D9] bg-white flex items-center justify-center hover:scale-105 transition"
           >
             {isPlaying ? (
               <PauseIcon className="w-auto h-4 invert brightness-100" />

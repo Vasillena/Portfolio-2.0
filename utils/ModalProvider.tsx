@@ -1,6 +1,12 @@
 "use client";
 
-import { ReactNode, createContext, useContext, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
 type ModalContextType = {
   isAboutOpen: boolean;
@@ -20,72 +26,89 @@ type ModalContextType = {
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export function ModalProvider({ children }: { children: ReactNode }) {
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
-  const [isStackOpen, setIsStackOpen] = useState(false);
-  const [isMobileTechOpen, setIsMobileTechOpen] = useState(false);
-  const [isMobileCreativeOpen, setIsMobileCreativeOpen] = useState(false);
+  // const [isAboutOpen, setIsAboutOpen] = useState(false);
+  // const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+  // const [isContactOpen, setIsContactOpen] = useState(false);
+  // const [isStackOpen, setIsStackOpen] = useState(false);
+  // const [isMobileTechOpen, setIsMobileTechOpen] = useState(false);
+  // const [isMobileCreativeOpen, setIsMobileCreativeOpen] = useState(false);
+  const [modals, setModals] = useState({
+    isAboutOpen: false,
+    isProjectsOpen: false,
+    isContactOpen: false,
+    isStackOpen: false,
+    isMobileTechOpen: false,
+    isMobileCreativeOpen: false,
+  });
 
-  const openModal = (
-    name: keyof Omit<ModalContextType, "openModal" | "closeModal">
-  ) => {
-    switch (name) {
-      case "isAboutOpen":
-        setIsAboutOpen(true);
-        break;
-      case "isProjectsOpen":
-        setIsProjectsOpen(true);
-        break;
-      case "isContactOpen":
-        setIsContactOpen(true);
-        break;
-      case "isStackOpen":
-        setIsStackOpen(true);
-        break;
-      case "isMobileTechOpen":
-        setIsMobileTechOpen(true);
-        break;
-      case "isMobileCreativeOpen":
-        setIsMobileCreativeOpen(true);
-        break;
-    }
-  };
+  // const openModal = (
+  //   name: keyof Omit<ModalContextType, "openModal" | "closeModal">
+  // ) => {
+  //   switch (name) {
+  //     case "isAboutOpen":
+  //       setIsAboutOpen(true);
+  //       break;
+  //     case "isProjectsOpen":
+  //       setIsProjectsOpen(true);
+  //       break;
+  //     case "isContactOpen":
+  //       setIsContactOpen(true);
+  //       break;
+  //     case "isStackOpen":
+  //       setIsStackOpen(true);
+  //       break;
+  //     case "isMobileTechOpen":
+  //       setIsMobileTechOpen(true);
+  //       break;
+  //     case "isMobileCreativeOpen":
+  //       setIsMobileCreativeOpen(true);
+  //       break;
+  //   }
+  // };
 
-  const closeModal = (
-    name: keyof Omit<ModalContextType, "openModal" | "closeModal">
-  ) => {
-    switch (name) {
-      case "isAboutOpen":
-        setIsAboutOpen(false);
-        break;
-      case "isProjectsOpen":
-        setIsProjectsOpen(false);
-        break;
-      case "isContactOpen":
-        setIsContactOpen(false);
-        break;
-      case "isStackOpen":
-        setIsStackOpen(false);
-        break;
-      case "isMobileTechOpen":
-        setIsMobileTechOpen(false);
-        break;
-      case "isMobileCreativeOpen":
-        setIsMobileCreativeOpen(false);
-        break;
-    }
-  };
+  // const closeModal = (
+  //   name: keyof Omit<ModalContextType, "openModal" | "closeModal">
+  // ) => {
+  //   switch (name) {
+  //     case "isAboutOpen":
+  //       setIsAboutOpen(false);
+  //       break;
+  //     case "isProjectsOpen":
+  //       setIsProjectsOpen(false);
+  //       break;
+  //     case "isContactOpen":
+  //       setIsContactOpen(false);
+  //       break;
+  //     case "isStackOpen":
+  //       setIsStackOpen(false);
+  //       break;
+  //     case "isMobileTechOpen":
+  //       setIsMobileTechOpen(false);
+  //       break;
+  //     case "isMobileCreativeOpen":
+  //       setIsMobileCreativeOpen(false);
+  //       break;
+  //   }
+  // };
+
+  const openModal = useCallback((name: keyof typeof modals) => {
+    setModals((prev) => ({ ...prev, [name]: true }));
+  }, []);
+
+  const closeModal = useCallback((name: keyof typeof modals) => {
+    setModals((prev) => ({ ...prev, [name]: false }));
+  }, []);
 
   return (
     <ModalContext.Provider
       value={{
-        isAboutOpen,
-        isProjectsOpen,
-        isContactOpen,
-        isStackOpen,
-        isMobileTechOpen,
-        isMobileCreativeOpen,
+        // isAboutOpen,
+        // isProjectsOpen,
+        // isContactOpen,
+        // isStackOpen,
+        // isMobileTechOpen,
+        // isMobileCreativeOpen,
+        ...modals,
         openModal,
         closeModal,
       }}

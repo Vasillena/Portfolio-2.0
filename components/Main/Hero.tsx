@@ -40,7 +40,7 @@ export default function Hero() {
         {/* LEFT SIDE */}
         <div className="relative pt-10">
           {/* Navigation */}
-          <Nav />
+          {up("xl") && <Nav />}
 
           {up("xl") && <Player src="/cloud-of-sorrow.mp3" />}
 

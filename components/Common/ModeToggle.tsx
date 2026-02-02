@@ -18,6 +18,7 @@ const ModeToggle = () => {
     setMounted(true);
     clickSoundRef.current = new Audio("/click.mp3");
     clickSoundRef.current.volume = 1;
+    clickSoundRef.current.preload = "auto";
   }, []);
 
   if (!mounted) return null;
@@ -25,7 +26,7 @@ const ModeToggle = () => {
   const isDark = resolvedTheme === "dark";
 
   const toggleTheme = () => {
-    clickSoundRef.current?.play();
+    clickSoundRef.current?.play().catch(() => {});
     setTheme(isDark ? "light" : "dark");
   };
 
@@ -34,9 +35,10 @@ const ModeToggle = () => {
       type="button"
       onClick={toggleTheme}
       aria-label="Toggle theme"
+      aria-pressed={isDark}
       className="sm:absolute sm:-top-6 sm:right-4 sm:w-27 sm:h-44 sm:z-10 flex flex-col items-center animate-glow sm:scale-75"
     >
-      {isDark ? (
+      {/* {isDark ? (
         <>
           <div className="hidden sm:block">
             <BulbDark className="w-15 h-23.25" />
@@ -61,6 +63,22 @@ const ModeToggle = () => {
 
           <MagicText className="hidden xl:block w-27 h-17.5 mt-4 opacity-80 animate-pulse" />
         </>
+      )} */}
+      <div className="hidden sm:block">
+        {isDark ? (
+          <BulbDark className="w-15 h-23.25" />
+        ) : (
+          <BulbLight className="w-15 h-23.25" />
+        )}
+      </div>
+
+      <div className="sm:hidden flex flex-col justify-center items-center sm:w-full sm:h-full">
+        <BulbM className="w-full h-full sm:p-2" />
+        <p className="md:text-4xl">Theme</p>
+      </div>
+
+      {!isDark && (
+        <MagicText className="hidden xl:block w-27 h-17.5 mt-4 opacity-80 animate-pulse" />
       )}
     </button>
   );

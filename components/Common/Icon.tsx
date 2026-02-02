@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ICONS, type IconName } from "@/utils/iconsLibrary";
+import { memo } from "react";
 
 type IconProps = {
   title?: string;
@@ -10,7 +11,7 @@ type IconProps = {
   invert?: boolean;
 };
 
-export default function Icon({
+const Icon = memo(function Icon({
   title,
   href,
   icon,
@@ -58,4 +59,6 @@ export default function Icon({
       {content}
     </button>
   );
-}
+});
+
+export default Icon;

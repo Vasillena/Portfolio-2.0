@@ -3,6 +3,7 @@
 import Icon from "../Common/Icon";
 import type { IconName } from "@/utils/iconsLibrary";
 import { MazzardExtraLight } from "@/utils/fonts";
+import { memo } from "react";
 import { useBreakpoints } from "@/utils/useBreakpoints";
 
 type IconItem = {
@@ -28,7 +29,7 @@ const icons: IconItem[] = [
 const techIcons = icons.slice(0, 6);
 const creativeIcons = icons.slice(6);
 
-function IconsRow({ icons }: { icons: IconItem[] }) {
+const IconsRow = memo(function IconsRow({ icons }: { icons: IconItem[] }) {
   return (
     <div className="flex flex-wrap xl:flex-nowrap justify-center items-start gap-8">
       {icons.map(({ id, icon, title }) => (
@@ -45,7 +46,7 @@ function IconsRow({ icons }: { icons: IconItem[] }) {
       ))}
     </div>
   );
-}
+});
 
 export default function StackIcons() {
   const { up } = useBreakpoints();

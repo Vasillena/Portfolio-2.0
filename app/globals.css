@@ -49,7 +49,28 @@ a {
   text-decoration: none;
 }
 
+.z-overlay {
+  z-index: 1000;
+}
+
+.overlay-fade-in::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white;
+  animation: fadeIn 1s forwards;
+}
+
 @layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @keyframes glow {
     0%,
     100% {
