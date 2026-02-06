@@ -87,7 +87,7 @@ export const techProjects: Project[] = [
     href: "#",
     images: {
       desktop: "/tech-project-1.png",
-      mobile: "/m-tech-project-1.png",
+      mobile: "/m-creative-project-1.png",
     },
     layout: {
       overlay: overlay1.src,
