@@ -114,7 +114,7 @@ export const techProjects: Project[] = [
   {
     id: 3,
     title: "Blog Website",
-    href: "#",
+    href: "https://blog-demo-pi-lac.vercel.app/",
     images: {
       desktop: "/tech-project-3.png",
       mobile: "/m-tech-project-3.png",

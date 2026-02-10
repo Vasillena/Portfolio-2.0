@@ -9,6 +9,8 @@ type ModalProps = {
   onClose: () => void;
 };
 
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY!;
+
 export default function Contact({ isOpen, onClose }: ModalProps) {
   const { down } = useBreakpoints();
 
@@ -21,11 +23,11 @@ export default function Contact({ isOpen, onClose }: ModalProps) {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        access_key: "a22df2ad-f29f-4c25-a4d0-077cffb32a84",
+        access_key: WEB3FORMS_KEY,
         name: e.target.name.value,
         email: e.target.email.value,
         message: e.target.message.value,
-        apikey: "a22df2ad-f29f-4c25-a4d0-077cffb32a84",
+        apikey: WEB3FORMS_KEY,
         redirect: "https://www.vasilena.space/thank-you",
       }),
     });
@@ -102,11 +104,7 @@ export default function Contact({ isOpen, onClose }: ModalProps) {
 
           <div>
             <label htmlFor="email" />
-            <input
-              type="hidden"
-              name="access_key"
-              value="a22df2ad-f29f-4c25-a4d0-077cffb32a84"
-            />
+            <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
             <input
               type="hidden"
               name="redirect"
