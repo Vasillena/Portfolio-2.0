@@ -13,6 +13,7 @@ This project is built with Next.js, Tailwind, GSAP and Three.js.
    <br/>
 
 View project at: https://vasilena.space/
+Read about project: https://www.behance.net/gallery/243315743/Personal-Portfolio
 
 
 ## 📜 Table of Contents
